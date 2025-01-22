@@ -1,18 +1,20 @@
 import React from "react";
-import "./css/index.css"; // Corrected path if you're styling globally
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import VisualizationArea from "./components/VisualizationArea";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import LandingPage from "./components/LandingPage";
+import VisualizationPlaceholder from "./components/VisualizationPlaceholder";
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow">
-        <VisualizationArea />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/visualization" element={<VisualizationPlaceholder />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
